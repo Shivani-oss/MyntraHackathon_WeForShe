@@ -23,7 +23,7 @@ class storePage extends Component
   
   componentDidMount(){
     this.getMyLocation();
-
+    console.log("name",  this.props.location.state)
     
   }
 
@@ -57,7 +57,7 @@ class storePage extends Component
       )
     }
     // console.log("ffff", this.state.values.name);
-
+    
 
   }
   

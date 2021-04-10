@@ -72,7 +72,7 @@ function RegisterScreen(props) {
           <button type="submit" className="button primary">Register</button>
         </li>
         <li>
-          Already have an account? <Link to='/signin' style={{textDecoration: 'none', color:'darkblue'}}>Sign-in</Link>
+          Already have an account? <Link to='/' style={{textDecoration: 'none', color:'darkblue'}}>Sign-in</Link>
         </li>
       </ul>
     </form>

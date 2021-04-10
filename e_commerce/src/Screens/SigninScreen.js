@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useLocation } from "react-router-dom";
 import { useSelector, useDispatch} from 'react-redux'
 import { signin } from '../reducer/userAction'
 import LoadingBox from '../components/LoadingBox'
 import MessageBox from '../components/MessageBox'
+
 
 
 function SigninScreen(props) {
@@ -13,12 +15,15 @@ function SigninScreen(props) {
   const userSignin = useSelector(state => state.userSignin)
   const { loading, userInfo, error } = userSignin
   const dispatch = useDispatch()
-  
+  const location = useLocation()
 
 
   useEffect(() => {
     if (userInfo) {
-      props.history.push("/location")
+      props.history.push({
+        pathname: '/location',
+        state: location.state,
+    });
     }
     return () => {
       //
