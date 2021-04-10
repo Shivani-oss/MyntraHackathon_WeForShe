@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
+import { useLocation } from "react-router-dom"
 import { register } from '../reducer/userAction'
 import LoadingBox from '../components/LoadingBox'
 import MessageBox from '../components/MessageBox'
@@ -14,11 +15,15 @@ function RegisterScreen(props) {
   const userRegister = useSelector(state => state.userRegister)
   const { loading, userInfo, error } = userRegister
   const dispatch = useDispatch()
+  const location = useLocation()
   
   useEffect(() => {
     if (userInfo) {
       alert('Register Sucessfully Completed')
-      props.history.push("/location")
+      props.history.push({
+        pathname: '/location',
+        state: location.state,
+    })
     }
     return () => {
       //
@@ -72,7 +77,7 @@ function RegisterScreen(props) {
           <button type="submit" className="button primary">Register</button>
         </li>
         <li>
-          Already have an account? <Link to='/' style={{textDecoration: 'none', color:'darkblue'}}>Sign-in</Link>
+          Already have an account? <Link to='/signin' style={{textDecoration: 'none', color:'darkblue'}}>Sign-in</Link>
         </li>
       </ul>
     </form>

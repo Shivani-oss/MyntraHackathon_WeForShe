@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom"
 import { useSelector, useDispatch} from 'react-redux'
 import { signin } from '../reducer/userAction'
 import LoadingBox from '../components/LoadingBox'
@@ -23,7 +23,7 @@ function SigninScreen(props) {
       props.history.push({
         pathname: '/location',
         state: location.state,
-    });
+    })
     }
     return () => {
       //
@@ -64,7 +64,7 @@ function SigninScreen(props) {
           New to shopify?
         </li>
         <li>
-          <Link style={{textDecoration: 'none'}}  to="/register" className="button secondary text-center" >Create Account </Link>
+          <Link style={{textDecoration: 'none'}}  to={{pathname: '/register', state: location.state}} className="button secondary text-center" >Create Account </Link>
         </li>
       </ul>
 
